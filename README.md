@@ -23,7 +23,7 @@ System Control: PyAutoGUI / NumPy
 
 # Quick StartInstallation
  Clone the repo
-git clone https://github.com/EshitaSri/AeroMouse.git
+git clone https://github.com/Eshitasri/AeroMouse.git
 cd AeroMouse
 
 # Install requirements
