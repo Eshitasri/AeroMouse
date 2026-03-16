@@ -100,13 +100,13 @@ Numerical Processing
 NumPy
 
 # 🚀 Quick Start
-Clone the Repository
-git clone https://github.com/Eshitasri/AeroMouse.git
-cd AeroMouse
-Install Dependencies
-pip install -r requirements.txt
-Run the Program
-python aeromouse_main.py
+  Clone the Repository
+  git clone https://github.com/Eshitasri/AeroMouse.git
+  cd AeroMouse
+  Install Dependencies
+  pip install -r requirements.txt
+  Run the Program
+  python aeromouse_main.py
 
 Press q to exit the application.
 
