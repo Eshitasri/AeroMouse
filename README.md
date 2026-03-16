@@ -1,38 +1,145 @@
-# 🛸 AeroMouse 
-A touchless, gesture-based navigation system that turns your webcam into a high-precision optical sensor. Control your OS with the air.
+# 🛸 AeroMouse
+
+A touchless, gesture-based navigation system that turns your webcam into a high-precision optical sensor. Control your operating system using natural hand gestures in the air.
+
+AeroMouse demonstrates how computer vision and real-time hand tracking can replace traditional input devices like a mouse.
 
 # 🌟 The AeroMouse Concept
-AeroMouse eliminates the need for physical peripherals by translating hand kinematics into system commands. Unlike other virtual mice that use awkward pinches, AeroMouse utilizes an Open Palm gesture for selection, making the interaction feel more natural and intentional.
+
+AeroMouse eliminates the need for physical peripherals by translating hand kinematics into system commands.
+
+Instead of relying on hardware sensors, the system uses real-time hand tracking to interpret gestures and map them to OS-level actions such as cursor movement, clicking, scrolling, and dragging.
+
+The project is built using modern computer vision tools and runs entirely on a standard webcam.
 
 # ✨ Features
-Air-Tracking: High-precision cursor movement using the index finger tip.
-Palm-Click: Open your palm fully to trigger a "Select" or Left-Click action.
-Dynamic Mapping: Automatically scales hand movement to your specific monitor resolution.
-Visual Feedback: On-screen landmarks show you exactly what the AI is seeing in real-time.
+🖱 Air Cursor Tracking
+
+Move the cursor using your index fingertip as a pointer.
+
+✋ Palm Click
+
+Opening your palm triggers a left mouse click.
+
+🤏 Pinch Drag
+
+Pinching your thumb and index finger together performs a click-and-drag operation, useful for text selection or moving objects.
+
+✌ Right Click Gesture
+
+Raising index and middle fingers triggers a right-click.
+
+👆 Scroll Mode
+
+Holding three fingers up activates vertical scrolling.
+
+# 📊 Visual Feedback
+
+Real-time display of:
+
+Hand skeleton landmarks
+
+Gesture detection states
+
+Cursor tracking point
+
+FPS performance counter
+
+# ⚡ Smooth Cursor Control
+
+Cursor motion uses low-pass smoothing to reduce jitter and improve usability.
 
 # ⚙️ How It Works
-AeroMouse uses a custom logic gate based on the 21 landmarks provided by the MediaPipe framework:
-Navigation Mode: The system tracks the $x, y$ coordinates of the Index Finger Tip (Landmark 8).
-Selection Logic: The system monitors the "Open" state of all five fingers. When the distance between the fingertips and the wrist exceeds a specific dynamic threshold, an Open Palm is detected, and a click instruction is sent via PyAutoGUI.
 
-# 🛠 Tech StackCore:
+AeroMouse processes webcam frames and extracts 21 hand landmarks using the real-time hand tracking pipeline from MediaPipe.
+
+The system then applies gesture logic to determine user intent.
+
+Cursor Navigation
+
+The cursor follows the index finger tip (Landmark 8).
+Hand coordinates from the camera frame are mapped to the screen resolution using interpolation.
+
+Gesture Detection
+
+Finger states are determined by comparing fingertip and joint positions.
+
+Examples:
+
+Open Palm → Left Click
+
+Index + Middle Finger → Right Click
+
+Three Fingers Up → Scroll Mode
+
+Thumb + Index Pinch → Drag / Selection
+
+System Control
+
+Mouse commands are executed using PyAutoGUI.
+
+# 🛠 Tech Stack
+Core Language
+
 Python 3.x
-Vision: OpenCV
-Inference: MediaPipe
-System Control: PyAutoGUI / NumPy
 
-# Quick StartInstallation
- Clone the repo
+Computer Vision
+
+OpenCV
+
+Hand Tracking
+
+MediaPipe
+
+System Control
+
+PyAutoGUI
+
+Numerical Processing
+
+NumPy
+
+# 🚀 Quick Start
+Clone the Repository
 git clone https://github.com/Eshitasri/AeroMouse.git
 cd AeroMouse
-
-# Install requirements
+Install Dependencies
 pip install -r requirements.txt
+Run the Program
 python aeromouse_main.py
 
-# 🎮 Instructions
-Hand Gesture	                System Command
-Index Finger                  Raised	Move Cursor
-Full Open Palm	              Left Click / Select
-Two Fingers (Index/Middle)	  Right Click
-Three Fingers Vertical	      Scroll Mode
+Press q to exit the application.
+
+# 🎮 Gesture Controls
+Gesture	System Command
+Index Finger Raised	Move Cursor
+Open Palm	Left Click
+Thumb + Index Pinch	Drag / Select
+Index + Middle Fingers	Right Click
+Three Fingers Up	Scroll Mode
+
+# 📊 System Feedback
+
+The application window provides real-time feedback including:
+
+Hand landmark visualization
+
+Cursor tracking indicator
+
+Gesture detection labels
+
+Frames-per-second (FPS) performance monitor
+
+# 📌 Future Improvements
+
+Planned upgrades for AeroMouse include:
+
+Machine learning based gesture classification
+
+Two-hand gesture recognition (zoom and advanced commands)
+
+Gesture training module
+
+Multi-monitor support
+
+Custom gesture mapping
